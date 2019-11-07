@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 1253917005639738040}
   m_Layer: 0
   m_Name: Collision
-  m_TagString: Untagged
+  m_TagString: Terrain
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -57,8 +57,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.1, y: 0.25, z: 2.05}
-  m_Center: {x: -0.65, y: 0.125, z: 1}
+  m_Size: {x: 0.1, y: 0.75, z: 2.05}
+  m_Center: {x: -0.65, y: 0.375, z: 1}
 --- !u!65 &1253917005639738040
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -70,8 +70,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.1, y: 0.25, z: 2.05}
-  m_Center: {x: 0.65, y: 0.125, z: 1}
+  m_Size: {x: 0.1, y: 0.75, z: 2.05}
+  m_Center: {x: 0.65, y: 0.375, z: 1}
 --- !u!1 &1253917005744235404
 GameObject:
   m_ObjectHideFlags: 0
@@ -1359,9 +1359,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1253917007731406858}
+  - component: {fileID: 6248065137297771298}
   m_Layer: 0
   m_Name: Bridge
-  m_TagString: Untagged
+  m_TagString: Structure
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1382,3 +1383,16 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6248065137297771298
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1253917007731406857}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2056440be446e1d4e903fa90941e379f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  collisionGeometry: {fileID: 1253917005639738045}

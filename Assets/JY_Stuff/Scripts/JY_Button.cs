@@ -5,37 +5,82 @@ using UnityEngine;
 public class JY_Button : MonoBehaviour
 {
     public GameObject pointer;
-    public GameObject obj;
-    GameObject[] tribes;
+
+    GameObject[] tribesA;
+    GameObject[] tribesE;
+    GameObject tracker;
+    float offset;
 
     // Start is called before the first frame update
     void Start()
     {
-        tribes = GameObject.FindGameObjectsWithTag("Tribe");
+        tribesA = GameObject.FindGameObjectsWithTag("TribeAlly");
+        tribesE = GameObject.FindGameObjectsWithTag("TribeEnemy");
+        tracker = GameObject.FindGameObjectWithTag("Tracker");
     }
 
     public void moveTribes()
     {
-        for(int i = 0; i < tribes.Length; i++)
+        foreach (GameObject tribe in tribesA)
         {
-            tribes[i].GetComponent<JY_Tribe>().moving = true;
+            tribe.GetComponent<JY_Tribe>().globalMoving = true;
+            tribe.GetComponent<JY_Tribe>().moving = true;
+        }
+
+        foreach (GameObject tribe in tribesE)
+        {
+            tribe.GetComponent<JY_Tribe>().globalMoving = true;
+            tribe.GetComponent<JY_Tribe>().moving = true;
         }
     }
 
     public void resetTribes()
     {
-        for (int i = 0; i < tribes.Length; i++)
+        foreach (GameObject tribe in tribesA)
         {
-            tribes[i].GetComponent<JY_Tribe>().moving = false;
-            tribes[i].GetComponent<JY_Tribe>().reseting = true;
-            tribes[i].GetComponent<JY_Tribe>().invokeReset();
+            tribe.GetComponent<JY_Tribe>().globalMoving = false;
+            tribe.GetComponent<JY_Tribe>().moving = false;
+            tribe.GetComponent<JY_Tribe>().reseting = true;
+            tribe.GetComponent<JY_Tribe>().invokeReset();
         }
+
+        foreach (GameObject tribe in tribesE)
+        {
+            tribe.GetComponent<JY_Tribe>().globalMoving = false;
+            tribe.GetComponent<JY_Tribe>().moving = false;
+            tribe.GetComponent<JY_Tribe>().reseting = true;
+            tribe.GetComponent<JY_Tribe>().invokeReset();
+        }
+
+        tracker.GetComponent<JY_TribeTracker>().Reset();
     }
 
-    public void addObject()
+    public void setOffset(float fl)
     {
-        var thing = Instantiate(obj, new Vector3(pointer.transform.position.x, pointer.transform.position.y, pointer.transform.position.z+1), Quaternion.identity);
+        offset = fl;
+    }
 
-        thing.transform.parent = pointer.transform;
+    public void addObject(GameObject obj)
+    {
+        var structure = Instantiate(obj, new Vector3(pointer.transform.position.x, pointer.transform.position.y, pointer.transform.position.z+offset), Quaternion.identity);
+
+        structure.name = "HeldStructure";
+        
+        if(structure.GetComponent<JY_Structure>() != null)
+        {
+            structure.GetComponent<JY_Structure>().collisionGeometry.SetActive(false);
+        }
+
+        structure.transform.parent = pointer.transform;
+    }
+
+    public void removeStructures()
+    {
+        GameObject[] placedStructures = GameObject.FindGameObjectsWithTag("Structure");
+
+        foreach(GameObject str in placedStructures)
+        {
+            Destroy(str);
+        }
     }
 }

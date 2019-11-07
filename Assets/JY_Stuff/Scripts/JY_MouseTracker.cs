@@ -19,11 +19,48 @@ public class JY_MouseTracker : MonoBehaviour
 
         if(Input.GetMouseButtonDown(0))
         {
-            var obj = transform.Find("Bridge(Clone)");
+            var structure = transform.Find("HeldStructure");
 
-            if(obj != null)
+            if(structure != null)
             {
-                obj.transform.parent = null;
+                structure.name = "PlacedStructure";
+
+                if (structure.GetComponent<JY_Structure>() != null)
+                {
+                    structure.GetComponent<JY_Structure>().collisionGeometry.SetActive(true);
+                }
+
+                structure.transform.parent = null;
+            }
+        }
+
+        if (Input.GetMouseButtonDown(1))
+        {
+            var structure = transform.Find("HeldStructure");
+
+            if (structure != null)
+            {
+                Destroy(structure.gameObject);
+            }
+        }
+
+        if (Input.GetKeyDown(KeyCode.Period))
+        {
+            var structure = transform.Find("HeldStructure");
+
+            if (structure != null && structure.GetComponent<JY_Structure>() != null)
+            {
+                structure.Rotate(new Vector3(0, 90, 0));
+            }
+        }
+
+        if (Input.GetKeyDown(KeyCode.Comma))
+        {
+            var structure = transform.Find("HeldStructure");
+
+            if (structure != null && structure.GetComponent<JY_Structure>() != null)
+            {
+                structure.Rotate(new Vector3(0, -90, 0));
             }
         }
     }

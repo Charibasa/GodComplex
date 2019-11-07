@@ -695,7 +695,7 @@ GameObject:
   - component: {fileID: 1457410873652622471}
   m_Layer: 0
   m_Name: TribeAlly
-  m_TagString: Tribe
+  m_TagString: TribeAlly
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -731,6 +731,7 @@ MonoBehaviour:
   dirIcon: {fileID: 5502429857205960005}
   raycasterStop: {fileID: 1457410873527359585}
   raycasterDir: {fileID: 6629511743009611236}
+  components: {fileID: 0}
   people:
   - {fileID: 1457410873807258516}
   - {fileID: 1457410873862494314}
@@ -743,8 +744,10 @@ MonoBehaviour:
   - {fileID: 1457410874480165997}
   - {fileID: 1457410873615184813}
   moving: 0
+  globalMoving: 0
   speed: 1
-  facing: 0
+  initFacing: 0
+  reseting: 0
 --- !u!65 &1457410873652622469
 BoxCollider:
   m_ObjectHideFlags: 0

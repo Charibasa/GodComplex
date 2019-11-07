@@ -289,7 +289,7 @@ GameObject:
   - component: {fileID: 2916067973223666656}
   m_Layer: 0
   m_Name: TribeEnemy
-  m_TagString: Tribe
+  m_TagString: TribeEnemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -325,6 +325,7 @@ MonoBehaviour:
   dirIcon: {fileID: 8385172570523586130}
   raycasterStop: {fileID: 2916067973197938438}
   raycasterDir: {fileID: 7840319987417452509}
+  components: {fileID: 0}
   people:
   - {fileID: 2916067973446378739}
   - {fileID: 2916067973534154509}
@@ -337,8 +338,10 @@ MonoBehaviour:
   - {fileID: 2916067973042430730}
   - {fileID: 2916067973253240010}
   moving: 0
+  globalMoving: 0
   speed: 1.5
-  facing: 0
+  initFacing: 0
+  reseting: 0
 --- !u!65 &2916067973223666658
 BoxCollider:
   m_ObjectHideFlags: 0
