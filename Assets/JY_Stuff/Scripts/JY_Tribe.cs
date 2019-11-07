@@ -7,6 +7,7 @@ public class JY_Tribe : MonoBehaviour
     Vector3 dir;
     BoxCollider bcol;
     CapsuleCollider ccol;
+    JY_TribeTracker tracker;
     bool dead;
     int facing;
 
@@ -17,6 +18,7 @@ public class JY_Tribe : MonoBehaviour
     public GameObject components;
     public GameObject[] people;
     public bool moving;
+    public bool globalMoving;
     public float speed;
     public int initFacing;
 
@@ -27,10 +29,12 @@ public class JY_Tribe : MonoBehaviour
     {
         initLoc = transform.position;
         moving = false;
+        globalMoving = false;
         dead = false;
         facing = initFacing;
         bcol = GetComponent<BoxCollider>();
         ccol = GetComponent<CapsuleCollider>();
+        tracker = GameObject.FindGameObjectWithTag("Tracker").GetComponent<JY_TribeTracker>();
         components = transform.Find("Components").gameObject;
 
         reseting = false;
@@ -64,7 +68,7 @@ public class JY_Tribe : MonoBehaviour
             transform.eulerAngles = new Vector3(0, 270, 0);
         }
 
-        if(moving)
+        if(moving && globalMoving)
         {
             transform.position += dir * Time.deltaTime * speed;
         }
@@ -72,6 +76,7 @@ public class JY_Tribe : MonoBehaviour
         if(dead)
         {
             moving = false;
+            globalMoving = false;
             components.SetActive(false);
         }
     }
@@ -80,16 +85,16 @@ public class JY_Tribe : MonoBehaviour
     {
         float avg = 0;
 
-        for(int i = 0; i < 10; i++)
+        foreach(GameObject person in people)
         {
-            avg += people[i].transform.position.y;
+            avg += person.transform.position.y;
         }
         
-        dirIcon.transform.position = new Vector3(dirIcon.transform.position.x, (avg/10), dirIcon.transform.position.z);
+        dirIcon.transform.position = new Vector3(dirIcon.transform.position.x, (avg/people.Length), dirIcon.transform.position.z);
 
-        if(avg/10 < 1)
+        if(avg/people.Length < 1)
         {
-            dead = true;
+            setDead();
         }
     }
 
@@ -142,11 +147,25 @@ public class JY_Tribe : MonoBehaviour
             {
                 facing = other.GetComponentInParent<JY_ChangeDirection>().newDirection;
             }
+
+            if (other.tag == "Goal")
+            {
+                other.GetComponentInParent<JY_Goal>().speedUp();
+
+                moving = false;
+                foreach (GameObject person in people)
+                {
+                    person.GetComponent<JY_Person>().ascend();
+                }
+                Invoke("setDead", 5);
+            }
         }
     }
 
     public void invokeReset()
     {
+        CancelInvoke();
+
         Invoke("reset", .1f);
         Invoke("setReset", .2f);
     }
@@ -159,16 +178,32 @@ public class JY_Tribe : MonoBehaviour
         raycasterStop.transform.localPosition = new Vector3(0, .2f, .485f);
         raycasterDir.transform.localPosition = new Vector3(0, .3f, .0625f);
         moving = false;
+        globalMoving = false;
         components.SetActive(true);
 
-        for (int i = 0; i < 10; i++)
+        foreach (GameObject person in people)
         {
-            people[i].GetComponent<JY_Person>().reset();
+            person.GetComponent<JY_Person>().reset();
         }
     }
-    
+
     void setReset()
     {
         reseting = false;
+    }
+
+    void setDead()
+    {
+        dead = true;
+        transform.position += new Vector3(0, 50, 0);
+
+        if(tag == "TribeAlly")
+        {
+            tracker.allyCount--;
+        }
+        else if(tag == "TribeEnemy")
+        {
+            tracker.enemyCount--;
+        }
     }
 }

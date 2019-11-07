@@ -58,5 +58,11 @@ public class JY_Person : MonoBehaviour
     {
         transform.localPosition = initLoc;
         rb.velocity = new Vector3(0, 0, 0);
+        rb.mass = 0.125f;
+    }
+
+    public void ascend()
+    {
+        rb.mass = 0.08f;
     }
 }

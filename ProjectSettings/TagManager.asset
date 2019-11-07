@@ -6,7 +6,11 @@ TagManager:
   tags:
   - Terrain
   - ChangeDirection
-  - Tribe
+  - Structure
+  - Goal
+  - TribeAlly
+  - TribeEnemy
+  - Tracker
   layers:
   - Default
   - TransparentFX

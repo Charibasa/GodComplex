@@ -16,6 +16,7 @@ public class JY_Water : MonoBehaviour
     void OnTriggerEnter(Collider other)
     {
         splash.transform.position = other.gameObject.GetComponent<Collider>().ClosestPointOnBounds(transform.position);
+        #pragma warning disable 618
         ps.startSpeed = other.GetComponent<Rigidbody>().velocity.magnitude / 3;
         ps.Play();
     }
