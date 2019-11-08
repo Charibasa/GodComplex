@@ -65,11 +65,8 @@ public class JY_Button : MonoBehaviour
         var structure = Instantiate(obj, new Vector3(pointer.transform.position.x, pointer.transform.position.y, pointer.transform.position.z+offset), Quaternion.identity);
 
         structure.name = "HeldStructure";
-        
-        if(structure.GetComponent<JY_Structure>() != null)
-        {
-            structure.GetComponent<JY_Structure>().collisionGeometry.SetActive(false);
-        }
+
+        structure.GetComponent<JY_Structure>().collisionGeometry.SetActive(false);
 
         structure.transform.parent = pointer.transform;
     }

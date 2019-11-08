@@ -9,6 +9,7 @@ public class JY_Tribe : MonoBehaviour
     CapsuleCollider ccol;
     JY_TribeTracker tracker;
     bool dead;
+    bool ascended;
     int facing;
 
     public Vector3 initLoc;
@@ -150,6 +151,7 @@ public class JY_Tribe : MonoBehaviour
 
             if (other.tag == "Goal")
             {
+                ascended = true;
                 other.GetComponentInParent<JY_Goal>().speedUp();
 
                 moving = false;
@@ -173,6 +175,7 @@ public class JY_Tribe : MonoBehaviour
     void reset()
     {
         dead = false;
+        ascended = false;
         transform.position = initLoc;
         facing = initFacing;
         raycasterStop.transform.localPosition = new Vector3(0, .2f, .485f);
@@ -200,6 +203,11 @@ public class JY_Tribe : MonoBehaviour
         if(tag == "TribeAlly")
         {
             tracker.allyCount--;
+
+            if(ascended)
+            {
+                tracker.ascendedAllies++;
+            }
         }
         else if(tag == "TribeEnemy")
         {

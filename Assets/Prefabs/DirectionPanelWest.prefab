@@ -141,6 +141,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7816285638875141772}
   - component: {fileID: 3802106963663715714}
+  - component: {fileID: 7808348955538187809}
   m_Layer: 0
   m_Name: DirectionPanelWest
   m_TagString: Structure
@@ -177,3 +178,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   newDirection: 3
+--- !u!114 &7808348955538187809
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5901315457073062232}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2056440be446e1d4e903fa90941e379f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  collisionGeometry: {fileID: 3886456412216878342}

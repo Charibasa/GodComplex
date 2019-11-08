@@ -10,6 +10,7 @@ public class JY_TribeTracker : MonoBehaviour
 
     public int allyCount;
     public int enemyCount;
+    public int ascendedAllies;
     public Text allyText;
     public Text enemyText;
 
@@ -25,8 +26,27 @@ public class JY_TribeTracker : MonoBehaviour
 
     void Update()
     {
-        allyText.text = "Allies: " + allyCount;
-        enemyText.text = "Enemies: " + enemyCount;
+        if(allyCount > 0)
+        {
+            allyText.text = "Allies: " + allyCount;
+        }
+        else if(ascendedAllies == initAlly)
+        {
+            allyText.text = "They've ascended!";
+        }
+        else
+        {
+            allyText.text = "Not good!";
+        }
+
+        if(enemyCount > 0)
+        {
+            enemyText.text = "Enemies: " + enemyCount;
+        }
+        else
+        {
+            enemyText.text = "They're dead!";
+        }
     }
 
     public void Reset()
