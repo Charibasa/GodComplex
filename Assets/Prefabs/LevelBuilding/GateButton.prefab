@@ -90,7 +90,7 @@ GameObject:
   - component: {fileID: 8330784261095771800}
   m_Layer: 0
   m_Name: GateButton
-  m_TagString: Untagged
+  m_TagString: Gate
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -125,6 +125,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   button: {fileID: 8330784261009115612}
   linkedGate: {fileID: 0}
+  col: {r: 0, g: 0, b: 0, a: 0}
 --- !u!135 &8330784261095771800
 SphereCollider:
   m_ObjectHideFlags: 0

@@ -1334,8 +1334,8 @@ GameObject:
   - component: {fileID: 1253917007731406858}
   - component: {fileID: 6248065137297771298}
   m_Layer: 0
-  m_Name: Bridge
-  m_TagString: Structure
+  m_Name: BridgeStatic
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

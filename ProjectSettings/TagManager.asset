@@ -11,6 +11,8 @@ TagManager:
   - TribeAlly
   - TribeEnemy
   - Tracker
+  - Gate
+  - Boundary
   layers:
   - Default
   - TransparentFX

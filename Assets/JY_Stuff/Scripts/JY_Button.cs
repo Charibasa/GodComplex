@@ -8,6 +8,7 @@ public class JY_Button : MonoBehaviour
 
     GameObject[] tribesA;
     GameObject[] tribesE;
+    GameObject[] gates;
     GameObject tracker;
     float offset;
 
@@ -16,6 +17,7 @@ public class JY_Button : MonoBehaviour
     {
         tribesA = GameObject.FindGameObjectsWithTag("TribeAlly");
         tribesE = GameObject.FindGameObjectsWithTag("TribeEnemy");
+        gates = GameObject.FindGameObjectsWithTag("Gate");
         tracker = GameObject.FindGameObjectWithTag("Tracker");
     }
 
@@ -50,6 +52,11 @@ public class JY_Button : MonoBehaviour
             tribe.GetComponent<JY_Tribe>().moving = false;
             tribe.GetComponent<JY_Tribe>().reseting = true;
             tribe.GetComponent<JY_Tribe>().invokeReset();
+        }
+
+        foreach(GameObject gate in gates)
+        {
+            gate.GetComponent<JY_GateButton>().reset();
         }
 
         tracker.GetComponent<JY_TribeTracker>().Reset();

@@ -129,7 +129,7 @@ public class JY_Tribe : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if(other.tag == "Terrain")
+        if(other.tag == "Terrain" || other.tag == "Boundary")
         {
             moving = false;
         }
@@ -168,8 +168,8 @@ public class JY_Tribe : MonoBehaviour
     {
         CancelInvoke();
 
-        Invoke("reset", .1f);
-        Invoke("setReset", .2f);
+        Invoke("reset", .05f);
+        Invoke("setReset", .15f);
     }
 
     void reset()
@@ -202,12 +202,12 @@ public class JY_Tribe : MonoBehaviour
 
         if(tag == "TribeAlly")
         {
-            tracker.allyCount--;
-
-            if(ascended)
+            if (ascended)
             {
                 tracker.ascendedAllies++;
             }
+
+            tracker.allyCount--;
         }
         else if(tag == "TribeEnemy")
         {

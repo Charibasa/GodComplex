@@ -13,6 +13,8 @@ public class JY_TribeTracker : MonoBehaviour
     public int ascendedAllies;
     public Text allyText;
     public Text enemyText;
+    public GameObject endScreen;
+    public Text endText;
 
     // Start is called before the first frame update
     void Start()
@@ -32,11 +34,13 @@ public class JY_TribeTracker : MonoBehaviour
         }
         else if(ascendedAllies == initAlly)
         {
-            allyText.text = "They've ascended!";
+            allyText.text = "ASCENDED!";
+            win();
         }
         else
         {
             allyText.text = "Not good!";
+            lose();
         }
 
         if(enemyCount > 0)
@@ -53,5 +57,17 @@ public class JY_TribeTracker : MonoBehaviour
     {
         allyCount = initAlly;
         enemyCount = initEnemy;
+    }
+
+    void lose()
+    {
+        endScreen.SetActive(true);
+        endText.text = "You Lost!";
+    }
+
+    void win()
+    {
+        endScreen.SetActive(true);
+        endText.text = "You Win!";
     }
 }
