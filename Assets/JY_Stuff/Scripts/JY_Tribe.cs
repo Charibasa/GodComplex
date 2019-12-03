@@ -10,7 +10,7 @@ public class JY_Tribe : MonoBehaviour
     JY_TribeTracker tracker;
     bool dead;
     bool ascended;
-    int facing;
+    float facing;
 
     public Vector3 initLoc;
     public GameObject dirIcon;
@@ -48,28 +48,48 @@ public class JY_Tribe : MonoBehaviour
         setColliderHeight();
         setDirColliderHeight();
 
-        if (facing == 0)
+        if (facing == 0) //North
         {
             dir = new Vector3(0, 0, 0.2f);
             transform.eulerAngles = new Vector3(0, 0, 0);
         }
-        else if (facing == 1)
+        else if (facing == 1) //East
         {
-            dir = new Vector3(0.2f, 0, 0);
+            dir = new Vector3(0, 0, 0.2f);
             transform.eulerAngles = new Vector3(0, 90, 0);
         }
-        else if (facing == 2)
+        else if (facing == 2) // South
         {
             dir = new Vector3(0, 0, -0.2f);
             transform.eulerAngles = new Vector3(0, 180, 0);
         }
-        else if (facing == 3)
+        else if (facing == 3) // West
         {
             dir = new Vector3(-0.2f, 0, 0);
             transform.eulerAngles = new Vector3(0, 270, 0);
         }
+        else if (facing == 4) // NorthEast
+        {
+            dir = new Vector3(.2f, 0, 0.2f);
+            transform.eulerAngles = new Vector3(0, 45, 0);
+        }
+        else if (facing == 5) // SouthEast
+        {
+            dir = new Vector3(0.2f, 0, -.2f);
+            transform.eulerAngles = new Vector3(0, 135, 0);
+        }
+        else if (facing == 6) // SouthWest
+        {
+            dir = new Vector3(-.2f, 0, -0.2f);
+            transform.eulerAngles = new Vector3(0, 225, 0);
+        }
+        else if (facing == 7) // NorthWest
+        {
+            dir = new Vector3(-0.2f, 0, 0.2f);
+            transform.eulerAngles = new Vector3(0, 315, 0);
+        }
 
-        if(moving && globalMoving)
+        if (moving && globalMoving)
         {
             transform.position += dir * Time.deltaTime * speed;
         }

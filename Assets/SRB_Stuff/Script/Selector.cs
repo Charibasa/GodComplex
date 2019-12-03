@@ -67,7 +67,7 @@ public class Selector : MonoBehaviour
 
             Destroy(g);
 
-            if (!(objectNumber == 0 || objectNumber == 1 || objectNumber == 6))
+            if (!(objectNumber == 0 || objectNumber == 1 || objectNumber == Objects.Length - 1))
                 g = Instantiate(Objects[objectNumber], Pointer.transform.position, Pointer.transform.rotation)
                     as GameObject;
             else
@@ -104,7 +104,7 @@ public class Selector : MonoBehaviour
 
             Destroy(g);
 
-            if(!(objectNumber == 0 || objectNumber == 1 || objectNumber == 6))
+            if(!(objectNumber == 0 || objectNumber == 1 || objectNumber == Objects.Length - 1))
                 g = Instantiate(Objects[objectNumber], Pointer.transform.position, Pointer.transform.rotation)
                     as GameObject;
             else
@@ -131,27 +131,30 @@ public class Selector : MonoBehaviour
             //print(Objects[objectNumber].name + ", " + Images[objectNumber].name);
         }
 
-        if (Input.GetKeyUp(KeyCode.Q) && (objectNumber == 0 || objectNumber == 1 || objectNumber == 6))
+        if (Input.GetKeyUp(KeyCode.Q))  //&& (objectNumber == 0 || objectNumber == 1 || objectNumber == 6))
         {
             objRotate = new Vector3(0, -45, 0);
             g.transform.Rotate(objRotate);
             print(yRotate);
         }
 
-        if (Input.GetKeyUp(KeyCode.E) && (objectNumber == 0 || objectNumber == 1 || objectNumber == 6))
+        if (Input.GetKeyUp(KeyCode.E)) //&& (objectNumber == 0 || objectNumber == 1 || objectNumber == 6))
         {
             objRotate = new Vector3(0, 45, 0);
             g.transform.Rotate(objRotate);
             print(yRotate);
         }
-        
-        if (Input.GetButtonDown("Jump"))
+
+        if (g != null)
         {
-            g = Instantiate(Objects[objectNumber], Pointer.transform.position, g.transform.rotation)
-                            as GameObject;
-        }
-        else
+            if (Input.GetButtonDown("Jump"))
+            {
+                g = Instantiate(Objects[objectNumber], Pointer.transform.position, g.transform.rotation)
+                                as GameObject;
+            }
+            else
                 g.transform.position = Pointer.transform.position;
+        }
     }
 
     public void cycleImage(int cycle)
