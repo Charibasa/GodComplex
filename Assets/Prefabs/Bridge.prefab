@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1253917005639738046}
   - component: {fileID: 1253917005639738047}
-  m_Layer: 9
+  m_Layer: 10
   m_Name: Collision
   m_TagString: Terrain
   m_Icon: {fileID: 0}
@@ -56,7 +56,7 @@ GameObject:
   - component: {fileID: 1253917005744235405}
   - component: {fileID: 1253917005744235400}
   - component: {fileID: 1253917005744235407}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Plank
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -133,7 +133,7 @@ GameObject:
   - component: {fileID: 1253917005802565987}
   - component: {fileID: 1253917005802565997}
   - component: {fileID: 1253917005802565996}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Stake
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -210,7 +210,7 @@ GameObject:
   - component: {fileID: 1253917005817030631}
   - component: {fileID: 1253917005817030625}
   - component: {fileID: 1253917005817030624}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Rope
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -287,7 +287,7 @@ GameObject:
   - component: {fileID: 1253917005818342009}
   - component: {fileID: 1253917005818341988}
   - component: {fileID: 1253917005818342011}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Plank
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -364,7 +364,7 @@ GameObject:
   - component: {fileID: 1253917005851329045}
   - component: {fileID: 1253917005851329047}
   - component: {fileID: 1253917005851329046}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Stake
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -441,7 +441,7 @@ GameObject:
   - component: {fileID: 1253917006067934786}
   - component: {fileID: 1253917006067934796}
   - component: {fileID: 1253917006067934787}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Rope
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -518,7 +518,7 @@ GameObject:
   - component: {fileID: 1253917006197168627}
   - component: {fileID: 1253917006197168638}
   - component: {fileID: 1253917006197168637}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Plank
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -595,7 +595,7 @@ GameObject:
   - component: {fileID: 1253917006372792910}
   - component: {fileID: 1253917006372792905}
   - component: {fileID: 1253917006372792904}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Plank
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -670,7 +670,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1253917006387554531}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Structure
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -718,7 +718,7 @@ GameObject:
   - component: {fileID: 1253917006465796034}
   - component: {fileID: 1253917006465796045}
   - component: {fileID: 1253917006465796044}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Plank
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -795,7 +795,7 @@ GameObject:
   - component: {fileID: 1253917006508423503}
   - component: {fileID: 1253917006508423497}
   - component: {fileID: 1253917006508423496}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Stake
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -872,7 +872,7 @@ GameObject:
   - component: {fileID: 1253917006667686568}
   - component: {fileID: 1253917006667686570}
   - component: {fileID: 1253917006667686569}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Rope
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -949,7 +949,7 @@ GameObject:
   - component: {fileID: 1253917006735818740}
   - component: {fileID: 1253917006735818743}
   - component: {fileID: 1253917006735818742}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Plank
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1026,7 +1026,7 @@ GameObject:
   - component: {fileID: 1253917006816973466}
   - component: {fileID: 1253917006816973445}
   - component: {fileID: 1253917006816973444}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Plank
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1103,7 +1103,7 @@ GameObject:
   - component: {fileID: 1253917007261069508}
   - component: {fileID: 1253917007261069510}
   - component: {fileID: 1253917007261069509}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Stake
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1180,7 +1180,7 @@ GameObject:
   - component: {fileID: 1253917007375532531}
   - component: {fileID: 1253917007375532542}
   - component: {fileID: 1253917007375532541}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Plank
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1257,7 +1257,7 @@ GameObject:
   - component: {fileID: 1253917007415949365}
   - component: {fileID: 1253917007415949367}
   - component: {fileID: 1253917007415949366}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Rope
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1333,7 +1333,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1253917007731406858}
   - component: {fileID: 6248065137297771298}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Bridge
   m_TagString: Structure
   m_Icon: {fileID: 0}
@@ -1380,7 +1380,7 @@ GameObject:
   - component: {fileID: 5539097235514617573}
   - component: {fileID: 3797760874233577729}
   - component: {fileID: 7015728790578435445}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: GameObject
   m_TagString: Terrain
   m_Icon: {fileID: 0}
