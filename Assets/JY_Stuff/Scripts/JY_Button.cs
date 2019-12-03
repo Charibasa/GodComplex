@@ -1,24 +1,49 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class JY_Button : MonoBehaviour
 {
-    public GameObject pointer;
-
+    public bool moving;
     GameObject[] tribesA;
     GameObject[] tribesE;
     GameObject[] gates;
     GameObject tracker;
-    float offset;
 
     // Start is called before the first frame update
     void Start()
     {
+        moving = false;
         tribesA = GameObject.FindGameObjectsWithTag("TribeAlly");
         tribesE = GameObject.FindGameObjectsWithTag("TribeEnemy");
         gates = GameObject.FindGameObjectsWithTag("Gate");
         tracker = GameObject.FindGameObjectWithTag("Tracker");
+    }
+
+    private void Update()
+    {
+        if(OVRInput.GetDown(OVRInput.Button.Three) && !moving)
+        {
+            moving = true;
+            moveTribes();
+        }
+
+        if(OVRInput.GetDown(OVRInput.Button.Four) && moving)
+        {
+            moving = false;
+            resetTribes();
+
+            if (OVRInput.Get(OVRInput.Axis1D.PrimaryIndexTrigger) > 0)
+            {
+                removeStructures();
+            } 
+        }
+
+        if (OVRInput.GetDown(OVRInput.Button.Two) && tracker.GetComponent<JY_TribeTracker>().gameOver)
+        {
+            SceneManager.LoadScene(0);
+        }
     }
 
     public void moveTribes()
@@ -60,22 +85,6 @@ public class JY_Button : MonoBehaviour
         }
 
         tracker.GetComponent<JY_TribeTracker>().Reset();
-    }
-
-    public void setOffset(float fl)
-    {
-        offset = fl;
-    }
-
-    public void addObject(GameObject obj)
-    {
-        var structure = Instantiate(obj, new Vector3(pointer.transform.position.x, pointer.transform.position.y, pointer.transform.position.z+offset), Quaternion.identity);
-
-        structure.name = "HeldStructure";
-
-        structure.GetComponent<JY_Structure>().collisionGeometry.SetActive(false);
-
-        structure.transform.parent = pointer.transform;
     }
 
     public void removeStructures()

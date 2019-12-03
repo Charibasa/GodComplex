@@ -22,8 +22,11 @@ public class Selector : MonoBehaviour
     int objectNumber = 0;
     float selectPlace = 0;
     float yRotate = 0;
+    bool stickIsNeutral = true;
     Vector3 objRotate = new Vector3(0,0,0);
     GameObject g;
+
+    JY_Button status;
 
     // Start is called before the first frame update
     void Start()
@@ -41,6 +44,8 @@ public class Selector : MonoBehaviour
         g = Instantiate(Objects[objectNumber], Pointer.transform.position, Pointer.transform.rotation)
                 as GameObject;
 
+        status = GetComponent<JY_Button>();
+
         updateDesc();
         cycleImage(2);
     }
@@ -57,9 +62,17 @@ public class Selector : MonoBehaviour
         if (selectPlace == -1)
             select.position = new Vector3(select.position.x, 6.2f, select.position.z);
 
-        //if (v > .15)
-        if (Input.GetKeyUp(KeyCode.UpArrow) || Input.GetKeyUp(KeyCode.W))
+        float v = Input.GetAxis("Vertical");
+
+        if(v == 0)
         {
+            stickIsNeutral = true;
+        }
+
+        //if (v > .15)
+        if ((Input.GetAxis("Vertical") > 0 && stickIsNeutral))
+        {
+            stickIsNeutral = false;
             if (objectNumber != Objects.Length - 1)
                 objectNumber++;
             else if (objectNumber == Objects.Length - 1)
@@ -95,8 +108,9 @@ public class Selector : MonoBehaviour
         }
 
         //if (v < -.15)
-        if (Input.GetKeyUp(KeyCode.DownArrow) || Input.GetKeyUp(KeyCode.S))
+        if ((Input.GetAxis("Vertical") < 0 && stickIsNeutral))
         {
+            stickIsNeutral = false;
             if (objectNumber != 0)
                 objectNumber--;
             else if (objectNumber == 0)
@@ -131,14 +145,14 @@ public class Selector : MonoBehaviour
             //print(Objects[objectNumber].name + ", " + Images[objectNumber].name);
         }
 
-        if (Input.GetKeyUp(KeyCode.Q))  //&& (objectNumber == 0 || objectNumber == 1 || objectNumber == 6))
+        if (Input.GetKeyUp(KeyCode.Q) || OVRInput.GetDown(OVRInput.Button.SecondaryHandTrigger))  //&& (objectNumber == 0 || objectNumber == 1 || objectNumber == 6))
         {
             objRotate = new Vector3(0, -45, 0);
             g.transform.Rotate(objRotate);
             print(yRotate);
         }
 
-        if (Input.GetKeyUp(KeyCode.E)) //&& (objectNumber == 0 || objectNumber == 1 || objectNumber == 6))
+        if (Input.GetKeyUp(KeyCode.E) || OVRInput.GetDown(OVRInput.Button.SecondaryIndexTrigger)) //&& (objectNumber == 0 || objectNumber == 1 || objectNumber == 6))
         {
             objRotate = new Vector3(0, 45, 0);
             g.transform.Rotate(objRotate);
@@ -147,13 +161,31 @@ public class Selector : MonoBehaviour
 
         if (g != null)
         {
-            if (Input.GetButtonDown("Jump"))
+            if(g.GetComponent<JY_Structure>() != null)
             {
+                g.GetComponent<JY_Structure>().collisionGeometry.SetActive(false);
+            }
+
+            if (Input.GetButtonDown("Jump") || OVRInput.GetDown(OVRInput.Button.One) && !status.moving)
+            {
+                if (g.GetComponent<JY_Structure>() != null)
+                {
+                    g.GetComponent<JY_Structure>().collisionGeometry.SetActive(true);
+                }
+
                 g = Instantiate(Objects[objectNumber], Pointer.transform.position, g.transform.rotation)
                                 as GameObject;
             }
             else
+            {
+                if (g.GetComponent<JY_Structure>() != null)
+                {
+                    g.GetComponent<JY_Structure>().collisionGeometry.SetActive(false);
+                }
+
                 g.transform.position = Pointer.transform.position;
+            }
+
         }
     }
 
@@ -218,9 +250,9 @@ public class Selector : MonoBehaviour
         if (objectNumber == 1)
             descript.text = "A Longer Bridge";
         if (objectNumber == 2)
-            descript.text = "A Sends a tribe North";
+            descript.text = "Sends a tribe in this direction";
         if (objectNumber == 3)
-            descript.text = "A Sends a tribe East";
+            descript.text = "A Ramp";
         if (objectNumber == 4)
             descript.text = "A Sends a tribe West";
         if (objectNumber == 5)

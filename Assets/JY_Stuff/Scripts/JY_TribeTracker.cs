@@ -15,6 +15,7 @@ public class JY_TribeTracker : MonoBehaviour
     public Text enemyText;
     public GameObject endScreen;
     public Text endText;
+    public bool gameOver;
 
     // Start is called before the first frame update
     void Start()
@@ -24,6 +25,7 @@ public class JY_TribeTracker : MonoBehaviour
 
         allyCount = initAlly;
         enemyCount = initEnemy;
+        gameOver = false;
     }
 
     void Update()
@@ -62,12 +64,14 @@ public class JY_TribeTracker : MonoBehaviour
     void lose()
     {
         endScreen.SetActive(true);
-        endText.text = "You Lost!";
+        gameOver = true;
+        endText.text = "You Lost!\n-------------------\nPress B to go\nback to the\nMain Menu";
     }
 
     void win()
     {
         endScreen.SetActive(true);
-        endText.text = "You Win!";
+        gameOver = true;
+        endText.text = "You Won!\n-------------------\nPress B to go\nback to the\nMain Menu";
     }
 }

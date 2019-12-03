@@ -4,63 +4,32 @@ using UnityEngine;
 
 public class JY_MouseTracker : MonoBehaviour
 {
+    Transform rightHand;
+
+    void Start()
+    {
+        rightHand = transform.parent;
+    }
+
     // Update is called once per frame
     void Update()
     {
-        Ray r = Camera.main.ScreenPointToRay(Input.mousePosition);
+        transform.eulerAngles = Vector3.zero;
+
         RaycastHit hitInfo;
-        if (Physics.Raycast(r, out hitInfo, Mathf.Infinity, 1 << LayerMask.NameToLayer("Terrain")))
+
+        if (Physics.Linecast(new Vector3(rightHand.position.x, rightHand.position.y + 100, rightHand.position.z), new Vector3(rightHand.position.x, rightHand.position.y - 100, rightHand.position.z), out hitInfo))
         {
             if (hitInfo.collider.tag == "Terrain")
             {
-                transform.position = new Vector3(hitInfo.point.x, hitInfo.point.y, hitInfo.point.z);
-            }
-        }
-
-        if(Input.GetMouseButtonDown(0))
-        {
-            var structure = transform.Find("HeldStructure");
-
-            if(structure != null)
-            {
-                structure.name = "PlacedStructure";
-
-                if (structure.GetComponent<JY_Structure>() != null)
+                if(hitInfo.point.y < 4)
                 {
-                    structure.GetComponent<JY_Structure>().collisionGeometry.SetActive(true);
+                    transform.position = new Vector3(rightHand.position.x, 4, rightHand.position.z);
                 }
-
-                structure.transform.parent = null;
-            }
-        }
-
-        if (Input.GetMouseButtonDown(1))
-        {
-            var structure = transform.Find("HeldStructure");
-
-            if (structure != null)
-            {
-                Destroy(structure.gameObject);
-            }
-        }
-
-        if (Input.GetKeyDown(KeyCode.Period))
-        {
-            var structure = transform.Find("HeldStructure");
-
-            if (structure != null && structure.GetComponent<JY_Structure>() != null)
-            {
-                structure.Rotate(new Vector3(0, 90, 0));
-            }
-        }
-
-        if (Input.GetKeyDown(KeyCode.Comma))
-        {
-            var structure = transform.Find("HeldStructure");
-
-            if (structure != null && structure.GetComponent<JY_Structure>() != null)
-            {
-                structure.Rotate(new Vector3(0, -90, 0));
+                else
+                {
+                    transform.position = new Vector3(rightHand.position.x, hitInfo.point.y, rightHand.position.z);
+                }
             }
         }
     }
