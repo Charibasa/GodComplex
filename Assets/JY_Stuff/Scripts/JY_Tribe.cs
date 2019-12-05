@@ -57,7 +57,7 @@ public class JY_Tribe : MonoBehaviour
         }
         else if (facing == 1) //East
         {
-            dir = new Vector3(0, 0, 0.2f);
+            dir = new Vector3(0.2f, 0, 0);
             transform.eulerAngles = new Vector3(0, 90, 0);
         }
         else if (facing == 2) // South
