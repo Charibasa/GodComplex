@@ -65,4 +65,9 @@ public class JY_Person : MonoBehaviour
     {
         rb.mass = 0.08f;
     }
+
+    public void explode()
+    {
+        rb.AddRelativeForce(Random.Range(-3, 3), Random.Range(1, 4), Random.Range(-3, 3), ForceMode.Impulse);
+    }
 }

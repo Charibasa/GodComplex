@@ -31,6 +31,10 @@ public class JY_MouseTracker : MonoBehaviour
                     transform.position = new Vector3(rightHand.position.x, hitInfo.point.y, rightHand.position.z);
                 }
             }
+            else
+            {
+                transform.position = rightHand.position;
+            }
         }
     }
 }

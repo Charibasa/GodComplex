@@ -13,6 +13,8 @@ TagManager:
   - Tracker
   - Gate
   - Boundary
+  - AllyBounds
+  - EnemyBounds
   layers:
   - Default
   - TransparentFX

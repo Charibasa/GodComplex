@@ -38,7 +38,7 @@ Transform:
   - {fileID: 1457410874480165996}
   - {fileID: 1457410873615184812}
   m_Father: {fileID: 7334682412390388043}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1457410872690857146
 GameObject:
@@ -731,7 +731,8 @@ MonoBehaviour:
   dirIcon: {fileID: 5502429857205960005}
   raycasterStop: {fileID: 1457410873527359585}
   raycasterDir: {fileID: 6629511743009611236}
-  components: {fileID: 0}
+  components: {fileID: 6162357004845649236}
+  detector: {fileID: 3135473725238739821}
   people:
   - {fileID: 1457410873807258516}
   - {fileID: 1457410873862494314}
@@ -1401,6 +1402,64 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6b82cf852211a646bfc3514a0db4aab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &3135473725238739821
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5513361299451041798}
+  - component: {fileID: 4806316504933730123}
+  - component: {fileID: 7769741732960780384}
+  m_Layer: 0
+  m_Name: OpponentDetector
+  m_TagString: AllyBounds
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5513361299451041798
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3135473725238739821}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.1, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 7334682412390388043}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &4806316504933730123
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3135473725238739821}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.6, y: 0.1, z: 0.8}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &7769741732960780384
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3135473725238739821}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ab6a06f92d0ee14eab328233f3796bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  opponentTouched: 0
 --- !u!1 &5502429857205960005
 GameObject:
   m_ObjectHideFlags: 0
@@ -1431,7 +1490,7 @@ Transform:
   m_LocalScale: {x: 0.075, y: 1, z: 0.075}
   m_Children: []
   m_Father: {fileID: 7334682412390388043}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &8291621130489684942
 MeshFilter:
@@ -1507,6 +1566,7 @@ Transform:
   m_Children:
   - {fileID: 1457410873527359584}
   - {fileID: 8736303803682337529}
+  - {fileID: 5513361299451041798}
   - {fileID: 6042486801905681957}
   - {fileID: 1457410872541327768}
   m_Father: {fileID: 1457410873652622584}

@@ -9,6 +9,7 @@ public class JY_Tribe : MonoBehaviour
     CapsuleCollider ccol;
     JY_TribeTracker tracker;
     bool dead;
+    bool exploded;
     bool ascended;
     float facing;
 
@@ -17,6 +18,7 @@ public class JY_Tribe : MonoBehaviour
     public GameObject raycasterStop;
     public GameObject raycasterDir;
     public GameObject components;
+    public GameObject detector;
     public GameObject[] people;
     public bool moving;
     public bool globalMoving;
@@ -32,11 +34,11 @@ public class JY_Tribe : MonoBehaviour
         moving = false;
         globalMoving = false;
         dead = false;
+        exploded = false;
         facing = initFacing;
         bcol = GetComponent<BoxCollider>();
         ccol = GetComponent<CapsuleCollider>();
         tracker = GameObject.FindGameObjectWithTag("Tracker").GetComponent<JY_TribeTracker>();
-        components = transform.Find("Components").gameObject;
 
         reseting = false;
     }
@@ -92,6 +94,12 @@ public class JY_Tribe : MonoBehaviour
         if (moving && globalMoving)
         {
             transform.position += dir * Time.deltaTime * speed;
+        }
+
+        if(detector.GetComponent<JY_Detector>().opponentTouched && !exploded)
+        {
+            exploded = true;
+            explode();
         }
 
         if(dead)
@@ -179,7 +187,7 @@ public class JY_Tribe : MonoBehaviour
                 {
                     person.GetComponent<JY_Person>().ascend();
                 }
-                Invoke("setDead", 5);
+                Invoke("setDead", 7);
             }
         }
     }
@@ -233,5 +241,15 @@ public class JY_Tribe : MonoBehaviour
         {
             tracker.enemyCount--;
         }
+    }
+
+    void explode()
+    {
+        moving = false;
+        foreach (GameObject person in people)
+        {
+            person.GetComponent<JY_Person>().explode();
+        }
+        Invoke("setDead", 5);
     }
 }

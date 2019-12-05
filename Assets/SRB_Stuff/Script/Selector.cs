@@ -54,13 +54,13 @@ public class Selector : MonoBehaviour
     void Update()
     {
         if (selectPlace == 1)
-            select.position = new Vector3(select.position.x, 7.8f,select.position.z);
+            select.position = new Vector3(select.position.x, image1.transform.position.y,select.position.z);
 
         if (selectPlace == 0)
-            select.position = new Vector3(select.position.x, 7, select.position.z);
+            select.position = new Vector3(select.position.x, image2.transform.position.y, select.position.z);
 
         if (selectPlace == -1)
-            select.position = new Vector3(select.position.x, 6.2f, select.position.z);
+            select.position = new Vector3(select.position.x, image3.transform.position.y, select.position.z);
 
         float v = Input.GetAxis("Vertical");
 
