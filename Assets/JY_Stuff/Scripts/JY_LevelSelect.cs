@@ -32,7 +32,7 @@ public class JY_LevelSelect : MonoBehaviour
 
             if (position == 0)
             {
-                position = 3;
+                position = 7;
             }
             else
             {
@@ -44,7 +44,7 @@ public class JY_LevelSelect : MonoBehaviour
         {
             stickIsNeutral = false;
 
-            if (position == 3)
+            if (position == 7)
             {
                 position = 0;
             }
@@ -54,7 +54,7 @@ public class JY_LevelSelect : MonoBehaviour
             }
         }
         
-        highlight.transform.position = new Vector3(0, 5.2f - (0.3f * position), 4.45f);
+        highlight.transform.position = new Vector3(0, 6.7f - (0.3f * position), 4.45f);
 
         if (Input.GetButtonDown("Jump") || OVRInput.GetDown(OVRInput.Button.One))
         {

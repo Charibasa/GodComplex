@@ -10,7 +10,7 @@ public class JY_ChangeDirection : MonoBehaviour
     private void Update()
     {
         rota = (int)Mathf.Ceil((int)transform.eulerAngles.y);
-        print(rota);
+        //print(rota);
 
         if (rota == 0 || rota == 360 || rota == 359) //North
             newDirection = 0;
