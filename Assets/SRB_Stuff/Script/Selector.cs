@@ -246,17 +246,17 @@ public class Selector : MonoBehaviour
     public void updateDesc()
     {
         if (objectNumber == 0)
-            descript.text = "A Bridge";
+            descript.text = "A Bridge. Can be placed anywhere, and will let tribes traverse gaps.";
         if (objectNumber == 1)
-            descript.text = "A Longer Bridge";
+            descript.text = "A Longer Bridge. Ccan go bring tribes and even further distance.";
         if (objectNumber == 2)
-            descript.text = "Sends a tribe in this direction";
+            descript.text = "Sends a tribe in the direction it points!";
         if (objectNumber == 3)
-            descript.text = "A Ramp";
+            descript.text = "A Ramp. Use it to go to higher places!";
         if (objectNumber == 4)
-            descript.text = "A Sends a tribe West";
+            descript.text = "A Block. Use it however you like, maybe a base to build more.";
         if (objectNumber == 5)
-            descript.text = "A Sends a tribe South";
+            descript.text = "A Longer Block for Longer options.";
         if (objectNumber == 6)
             descript.text = "A Ramp";
     }
