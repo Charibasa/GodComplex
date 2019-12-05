@@ -103,7 +103,7 @@ public class Selector : MonoBehaviour
                 updateDesc();
             }
 
-            print(objectNumber);
+            //print(objectNumber);
             //print(Objects[objectNumber].name + ", " + Images[objectNumber].name);
         }
 
@@ -141,7 +141,7 @@ public class Selector : MonoBehaviour
                 updateDesc();
             }
 
-            print(objectNumber);
+            //print(objectNumber);
             //print(Objects[objectNumber].name + ", " + Images[objectNumber].name);
         }
 
@@ -149,14 +149,14 @@ public class Selector : MonoBehaviour
         {
             objRotate = new Vector3(0, -45, 0);
             g.transform.Rotate(objRotate);
-            print(yRotate);
+            //print(yRotate);
         }
 
         if (Input.GetKeyUp(KeyCode.E) || OVRInput.GetDown(OVRInput.Button.SecondaryIndexTrigger)) //&& (objectNumber == 0 || objectNumber == 1 || objectNumber == 6))
         {
             objRotate = new Vector3(0, 45, 0);
             g.transform.Rotate(objRotate);
-            print(yRotate);
+            //print(yRotate);
         }
 
         if (g != null)
