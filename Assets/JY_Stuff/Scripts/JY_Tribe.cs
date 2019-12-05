@@ -24,8 +24,8 @@ public class JY_Tribe : MonoBehaviour
     public bool globalMoving;
     public float speed;
     public int initFacing;
-
     public bool reseting;
+    public AudioClip[] sfx;
 
     // Start is called before the first frame update
     void Start()
@@ -123,6 +123,7 @@ public class JY_Tribe : MonoBehaviour
 
         if(avg/people.Length < 1)
         {
+            GetComponent<AudioSource>().PlayOneShot(sfx[0]);
             setDead();
         }
     }
@@ -179,6 +180,7 @@ public class JY_Tribe : MonoBehaviour
 
             if (other.tag == "Goal")
             {
+                GetComponent<AudioSource>().PlayOneShot(sfx[1]);
                 ascended = true;
                 other.GetComponentInParent<JY_Goal>().speedUp();
 
@@ -245,6 +247,7 @@ public class JY_Tribe : MonoBehaviour
 
     void explode()
     {
+        GetComponent<AudioSource>().PlayOneShot(sfx[0]);
         moving = false;
         foreach (GameObject person in people)
         {

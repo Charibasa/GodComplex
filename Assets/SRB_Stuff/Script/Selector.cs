@@ -10,7 +10,7 @@ public class Selector : MonoBehaviour
     GameObject SelectScreen;
     public Sprite[] Images; 
     public GameObject[] Objects;
-
+    public AudioClip[] sfx;
 
     Image image1;
     Image image2;
@@ -72,6 +72,7 @@ public class Selector : MonoBehaviour
         //if (v > .15)
         if ((Input.GetAxis("Vertical") > 0 && stickIsNeutral))
         {
+            GetComponent<AudioSource>().PlayOneShot(sfx[0]);
             stickIsNeutral = false;
             if (objectNumber != Objects.Length - 1)
                 objectNumber++;
@@ -110,6 +111,7 @@ public class Selector : MonoBehaviour
         //if (v < -.15)
         if ((Input.GetAxis("Vertical") < 0 && stickIsNeutral))
         {
+            GetComponent<AudioSource>().PlayOneShot(sfx[0]);
             stickIsNeutral = false;
             if (objectNumber != 0)
                 objectNumber--;
@@ -168,6 +170,7 @@ public class Selector : MonoBehaviour
 
             if (Input.GetButtonDown("Jump") || OVRInput.GetDown(OVRInput.Button.One) && !status.moving)
             {
+                GetComponent<AudioSource>().PlayOneShot(sfx[1]);
                 if (g.GetComponent<JY_Structure>() != null)
                 {
                     g.GetComponent<JY_Structure>().collisionGeometry.SetActive(true);

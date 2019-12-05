@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class JY_Button : MonoBehaviour
 {
     public bool moving;
+    public AudioClip[] sfx;
     GameObject[] tribesA;
     GameObject[] tribesE;
     GameObject[] gates;
@@ -25,12 +26,14 @@ public class JY_Button : MonoBehaviour
     {
         if(OVRInput.GetDown(OVRInput.Button.Three) && !moving)
         {
+            GetComponent<AudioSource>().PlayOneShot(sfx[0]);
             moving = true;
             moveTribes();
         }
 
         if(OVRInput.GetDown(OVRInput.Button.Four) && moving)
         {
+            GetComponent<AudioSource>().PlayOneShot(sfx[1]);
             moving = false;
             resetTribes();
 

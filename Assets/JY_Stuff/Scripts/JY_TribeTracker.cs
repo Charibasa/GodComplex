@@ -16,6 +16,7 @@ public class JY_TribeTracker : MonoBehaviour
     public GameObject endScreen;
     public Text endText;
     public bool gameOver;
+    public AudioClip[] sfx;
 
     // Start is called before the first frame update
     void Start()
@@ -63,6 +64,7 @@ public class JY_TribeTracker : MonoBehaviour
 
     void lose()
     {
+        GetComponent<AudioSource>().PlayOneShot(sfx[0]);
         endScreen.SetActive(true);
         gameOver = true;
         endText.text = "You Lost!\n-------------------\nPress B to go\nback to the\nMain Menu";
@@ -70,6 +72,7 @@ public class JY_TribeTracker : MonoBehaviour
 
     void win()
     {
+        GetComponent<AudioSource>().PlayOneShot(sfx[1]);
         endScreen.SetActive(true);
         gameOver = true;
         endText.text = "You Won!\n-------------------\nPress B to go\nback to the\nMain Menu";
