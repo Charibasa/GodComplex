@@ -258,6 +258,6 @@ public class Selector : MonoBehaviour
         if (objectNumber == 5)
             descript.text = "A Longer Block for Longer options.";
         if (objectNumber == 6)
-            descript.text = "A Ramp";
+            descript.text = "Placeholder";
     }
 }
