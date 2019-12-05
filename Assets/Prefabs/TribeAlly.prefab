@@ -745,7 +745,7 @@ MonoBehaviour:
   - {fileID: 1457410873615184813}
   moving: 0
   globalMoving: 0
-  speed: 1
+  speed: 3
   initFacing: 0
   reseting: 0
 --- !u!65 &1457410873652622469
