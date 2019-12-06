@@ -18,7 +18,7 @@ public class JY_MouseTracker : MonoBehaviour
 
         RaycastHit hitInfo;
 
-        if (Physics.Linecast(new Vector3(rightHand.position.x, 100, rightHand.position.z), new Vector3(rightHand.position.x, -100, rightHand.position.z), out hitInfo))
+        if (Physics.Linecast(rightHand.position, new Vector3(rightHand.position.x, -100, rightHand.position.z), out hitInfo))
         {
             if (hitInfo.collider.tag == "Terrain")
             {

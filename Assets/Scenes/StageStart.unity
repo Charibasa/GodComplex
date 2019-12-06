@@ -6445,7 +6445,7 @@ GameObject:
   m_Component:
   - component: {fileID: 890602042}
   m_Layer: 0
-  m_Name: Trees (3)
+  m_Name: Trees
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10184,7 +10184,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1347123131}
   m_Layer: 0
-  m_Name: Trees (1)
+  m_Name: Trees
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11303,7 +11303,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1474808851}
   m_Layer: 0
-  m_Name: Trees (2)
+  m_Name: Trees
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -15,7 +15,7 @@ public class Selector : MonoBehaviour
     Image image1;
     Image image2;
     Image image3;
-    RectTransform select;
+    GameObject select;
 
     Text descript;
 
@@ -37,7 +37,7 @@ public class Selector : MonoBehaviour
         image1 = GameObject.Find("Image1").GetComponent<Image>();
         image2 = GameObject.Find("Image2").GetComponent<Image>();
         image3 = GameObject.Find("Image3").GetComponent<Image>();
-        select = GameObject.Find("Selected").GetComponent<RectTransform>();
+        select = GameObject.Find("screenSelect");
 
         descript = GameObject.Find("descText").GetComponent<Text>();
 
@@ -54,13 +54,13 @@ public class Selector : MonoBehaviour
     void Update()
     {
         if (selectPlace == 1)
-            select.position = new Vector3(select.position.x, image1.transform.position.y,select.position.z);
+            select.transform.position = image1.transform.position;
 
         if (selectPlace == 0)
-            select.position = new Vector3(select.position.x, image2.transform.position.y, select.position.z);
+            select.transform.position = image2.transform.position;
 
         if (selectPlace == -1)
-            select.position = new Vector3(select.position.x, image3.transform.position.y, select.position.z);
+            select.transform.position = image3.transform.position;
 
         float v = Input.GetAxis("Vertical");
 

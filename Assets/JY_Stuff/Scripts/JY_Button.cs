@@ -45,7 +45,14 @@ public class JY_Button : MonoBehaviour
 
         if (OVRInput.GetDown(OVRInput.Button.Two) && tracker.GetComponent<JY_TribeTracker>().gameOver)
         {
-            SceneManager.LoadScene(0);
+            if(SceneManager.GetActiveScene().buildIndex == 8)
+            {
+                SceneManager.LoadScene(0);
+            }
+            else
+            {
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+            }
         }
     }
 

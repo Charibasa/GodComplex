@@ -1,21 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &5150453796526729887
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4773293582418689382}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 17356a7fbd15c2b4ba65e9046c0b82a9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moving: 0
-  sfx:
-  - {fileID: 8300000, guid: 436f47dbb9cdaec44a33d8932d748825, type: 3}
-  - {fileID: 8300000, guid: b796e2a29e518cb4ebe0517b319dc183, type: 3}
 --- !u!82 &8418113270970830715
 AudioSource:
   m_ObjectHideFlags: 0
@@ -112,6 +96,22 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &5150453796526729887
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4773293582418689382}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17356a7fbd15c2b4ba65e9046c0b82a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moving: 0
+  sfx:
+  - {fileID: 8300000, guid: 436f47dbb9cdaec44a33d8932d748825, type: 3}
+  - {fileID: 8300000, guid: b796e2a29e518cb4ebe0517b319dc183, type: 3}
 --- !u!1 &5150453796360852683
 GameObject:
   m_ObjectHideFlags: 0
@@ -349,7 +349,8 @@ MonoBehaviour:
   endScreen: {fileID: 0}
   endText: {fileID: 0}
   gameOver: 0
-  sfx: []
+  sfxLose: {fileID: 8300000, guid: d27d3f0a5ebc9234ab3a8c89649f2144, type: 3}
+  sfxWin: {fileID: 8300000, guid: cea6772f71e02ce42bc22c436e6c7ffe, type: 3}
 --- !u!82 &3888515855176892361
 AudioSource:
   m_ObjectHideFlags: 0
